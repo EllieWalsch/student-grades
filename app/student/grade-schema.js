@@ -1,0 +1,26 @@
+import { Schema } from "mongoose";
+
+const gradeSchema = new Schema({
+  gradeType: {
+    type: String,
+    enum: ["exam", "quiz", "homework", "project"],
+    default: "exam",
+  },
+  name: {
+    type: String,
+    required: [true, "Grade name is required"],
+    minLength: [3, "Grade name must be at least 3 characters"],
+    trim: true,
+  },
+  earned: {
+    type: Number,
+    required: [true, "Earned is required"],
+    min: [0, "Earned must be greater than or equal to 0"],
+  },
+  possible: {
+    type: Number,
+    required: [true, "Possible points are required"],
+  },
+});
+
+export default gradeSchema;
