@@ -18,3 +18,8 @@ const studentSchema = new Schema(
     versionKey: false,
   }
 );
+
+// TODO: prevent duplicate grade names
+
+// name of model, schema it's based on
+export default model("Student", studentSchema);
